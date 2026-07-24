@@ -33,3 +33,23 @@ bounded and manageable.
 **Setup confirmation:** [x] App runs locally at localhost:5173
 
 **Cohort ledger:** [x] Issue added to cohort ledger
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** https://github.com/Grevanur/pathreview/blob/fix/146-pii-parenthesized-phone/docs/repro/week8-repro-146.txt
+
+**Reproduction summary:**
+Ran the phone-number test suite and confirmed the four tests named in #146
+fail. Traced the bug to safety/pii_scrubber.py line 15: the phone_us regex
+only allows a dash or dot after the closing parenthesis, never a space, so
+"(555) 123-4567" breaks right after the ")".
+
+**PLAN.md link:** https://github.com/Grevanur/pathreview/blob/fix/146-pii-parenthesized-phone/PLAN.md
+
+**Walkthrough video (recommended):** 
+
+**Blockers or open questions:**
+None on the phone fix itself — found the exact line and the fix is a small
+regex change. Separately noticed test_mixed_pii_and_text also fails, from
+an unrelated overmatching bug; flagging it but not fixing it since it's
+outside #146's scope.
