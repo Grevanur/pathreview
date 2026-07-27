@@ -67,7 +67,7 @@ line. All four #146 phone tests now pass; added a regression test for the
 parenthesized case.
 
 ### Check-in 2 (submission — PR link)
-**PR:** [PASTE PR URL HERE]
+**PR:** https://github.com/ascherj/pathreview/pull/319
 
 Final state: 24/25 tests in `test_pii_scrubber.py` pass. The one remaining
 failure, `test_mixed_pii_and_text`, is the pre-existing `street_address`
