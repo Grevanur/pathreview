@@ -260,5 +260,6 @@ class TestPIIScrubber:
         text = "Call me at (555) 123-4567 tomorrow"
         scrubbed = scrubber.scrub(text)
 
-        assert "[REDACTED]" in scrubbed
-        assert "123-4567" not in scrubbed
+        # Full-string assertion: guards against partial redaction that
+        # leaves the leading "(" behind (e.g. "([REDACTED]").
+        assert scrubbed == "Call me at [REDACTED] tomorrow"
